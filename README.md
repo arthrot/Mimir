@@ -25,4 +25,4 @@ The first working adapter targets the existing Samskara Unity project. The core 
 
 ## Status
 
-Product definition and evidence gathering. No production code has been selected or committed yet. **Mimir** is the working product name; the repository slug remains `Moolah` until it is deliberately renamed.
+Product definition and evidence gathering. No production code has been selected or committed yet. **Mimir** is the working product and repository name.
