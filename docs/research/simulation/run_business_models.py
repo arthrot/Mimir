@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Monte Carlo business-model comparison for the Moolah opportunity research.
+"""Monte Carlo business-model comparison for the Mimir opportunity research.
 
 The distributions are explicit planning assumptions, not empirical forecasts.
 Run with Python 3 and NumPy; outputs are deterministic under SEED.

@@ -19,7 +19,7 @@ This is narrower than “everything interconnected,” but it tests the valuable
 
 ## Evidence from the current project
 
-The Moolah workspace contains research artifacts but no application code, Git repository, Unreal project, or local game-design PDF. The relevant game material appears in the separate Samskara workspace, which is currently a Unity project. Therefore, Unreal compilation and an Unreal fixture are day-one dependencies, not assumed capabilities.
+The Mimir workspace contains research artifacts but no application code, Git repository, Unreal project, or local game-design PDF. The relevant game material appears in the separate Samskara workspace, which is currently a Unity project. Therefore, Unreal compilation and an Unreal fixture are day-one dependencies, not assumed capabilities.
 
 The inspected Samskara material already defines the product problem unusually well:
 

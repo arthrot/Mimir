@@ -109,7 +109,7 @@ From Unity, ask “Which source is authoritative for story facts?” and open th
 - Repeat sync makes no duplicate records.
 - Modified sources update incrementally.
 - Citation opens the correct file/page or Unity object.
-- The same model receives the same task through the baseline and Moolah context paths; results, time, tokens, and correction count are recorded rather than judged from demos.
+- The same model receives the same task through the baseline and Mimir context paths; results, time, tokens, and correction count are recorded rather than judged from demos.
 
 ## Milestone 2 — days 8–14: workflow-aware assistant
 
