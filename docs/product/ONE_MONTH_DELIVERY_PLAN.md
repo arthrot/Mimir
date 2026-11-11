@@ -75,6 +75,7 @@ Runs on adapter, Unity package, fixture, and editor UI changes:
 - Monorepo skeleton: `apps/sidecar`, `packages/contracts`, `packages/evals`, `adapters/unity`, `adapters/fake`, `fixtures/samskara`.
 - Engine-adapter and control-plane interfaces.
 - Ten frozen golden questions and expected citations/actions.
+- Head-to-head baseline runs for ordinary search, Codex/Claude plus project instructions, Unity Assistant or a leading Unity MCP, and Hades where compatible.
 - Threat/privacy baseline and local-only default.
 - CI lanes running empty smoke tests.
 
@@ -108,6 +109,7 @@ From Unity, ask “Which source is authoritative for story facts?” and open th
 - Repeat sync makes no duplicate records.
 - Modified sources update incrementally.
 - Citation opens the correct file/page or Unity object.
+- The same model receives the same task through the baseline and Moolah context paths; results, time, tokens, and correction count are recorded rather than judged from demos.
 
 ## Milestone 2 — days 8–14: workflow-aware assistant
 
@@ -200,6 +202,8 @@ The month-one build is successful only if a developer can open Samskara in Unity
 6. navigate to the relevant Unity item,
 7. repeat in local-only mode.
 
+The build is not a viable product merely because this loop works. On matched Samskara tasks, the authority/workflow layer must also beat a well-configured coding agent plus project Markdown and the best compatible Unity-native baseline. The release decision uses the thresholds and kill conditions in the [competitive stress test](COMPETITIVE_STRESS_TEST.md).
+
 ## Scope cuts if schedule slips
 
 Cut in this order:
@@ -220,4 +224,3 @@ Never cut provenance, authority, deterministic workflow evaluation, privacy cont
 4. Asset intake/license registry and bloat report.
 5. Production Unreal adapter.
 6. Perforce adapter and team permission model.
-

@@ -22,6 +22,8 @@ The supporting [game-development friction research](../research/2026-11-12-game-
 
 > Ask one project-aware assistant what is true, why it is true, what changed, and what to do next—and receive a cited, permission-aware answer grounded in the project's own authority and workflow rules.
 
+Moolah is a **context compiler, not a replacement chat assistant**. It should compile trusted evidence and permitted actions for Unity Assistant, Unreal Assistant, Codex, Claude, Cursor, or a studio-hosted model. The durable product is the authority, workflow, provenance, and cross-domain impact layer; chat is only one consumer.
+
 The product is not “chat with a PDF.” It is an executable project map with five coupled capabilities:
 
 - **Knowledge:** ingest and connect documents, code, assets, scenes, tasks, Git history, tests, and decisions.
