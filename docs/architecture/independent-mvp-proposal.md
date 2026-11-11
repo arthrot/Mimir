@@ -1,6 +1,6 @@
 # Independent architecture proposal: one-month, two-developer MVP
 
-Status: critical scope proposal, not an implementation commitment  
+Status: independent critical scope proposal; its Unreal-first implementation assumption was superseded by the user's Unity-first, engine-neutral decision. Retained for its scope critique, Ask/Guide/Trace framing, risks, and acceptance criteria.  
 Date: 2026-11-12
 
 ## Executive decision
