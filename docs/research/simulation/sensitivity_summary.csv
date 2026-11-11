@@ -1,0 +1,21 @@
+idea,scenario,estimated_median_revenue
+Supplier/import ops,lead flow / marketplace traffic -25%,160535
+Supplier/import ops,base assumptions,214046
+Supplier/import ops,lead flow / marketplace traffic +25%,267558
+Supplier/import ops,pricing -25%,160535
+Supplier/import ops,pricing +25%,267558
+GovCon response ops,lead flow / marketplace traffic -25%,39052
+GovCon response ops,base assumptions,52069
+GovCon response ops,lead flow / marketplace traffic +25%,65086
+GovCon response ops,pricing -25%,39052
+GovCon response ops,pricing +25%,65086
+AI governance evidence,lead flow / marketplace traffic -25%,32697
+AI governance evidence,base assumptions,43596
+AI governance evidence,lead flow / marketplace traffic +25%,54494
+AI governance evidence,pricing -25%,32697
+AI governance evidence,pricing +25%,54494
+Atlassian compliance app,lead flow / marketplace traffic -25%,6981
+Atlassian compliance app,base assumptions,9308
+Atlassian compliance app,lead flow / marketplace traffic +25%,11635
+Atlassian compliance app,pricing -25%,6981
+Atlassian compliance app,pricing +25%,11635

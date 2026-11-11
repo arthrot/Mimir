@@ -1,0 +1,45 @@
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# JavaScript / TypeScript
+node_modules/
+dist/
+coverage/
+.turbo/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local product state
+.moolah/
+*.db
+*.db-shm
+*.db-wal
+
+# Unity generated state
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+
+# Unreal generated state
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+

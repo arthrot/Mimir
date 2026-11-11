@@ -1,0 +1,188 @@
+{
+  "seed": 20261105,
+  "simulations": 100000,
+  "months": 12,
+  "currency": "USD",
+  "warning": "Planning assumptions only; probabilities are conditional on these distributions.",
+  "models": {
+    "Supplier/import ops": {
+      "kind": "sales",
+      "fit_probability": 0.55,
+      "conversations": [
+        10,
+        20,
+        34
+      ],
+      "monthly_lead_growth": [
+        -0.01,
+        0.025,
+        0.07
+      ],
+      "close_rate_beta": [
+        3.0,
+        22.0
+      ],
+      "sales_cycle_months": [
+        0,
+        1,
+        2
+      ],
+      "setup_fee": [
+        2500,
+        6000,
+        12000
+      ],
+      "monthly_fee": [
+        1200,
+        2800,
+        5500
+      ],
+      "monthly_churn_beta": [
+        2.0,
+        70.0
+      ],
+      "gross_margin": [
+        0.52,
+        0.68,
+        0.82
+      ],
+      "initial_capacity": 12,
+      "scaled_capacity": 28,
+      "scale_month": 6,
+      "scale_probability": 0.6
+    },
+    "GovCon response ops": {
+      "kind": "sales",
+      "fit_probability": 0.45,
+      "conversations": [
+        8,
+        16,
+        28
+      ],
+      "monthly_lead_growth": [
+        -0.01,
+        0.02,
+        0.06
+      ],
+      "close_rate_beta": [
+        2.5,
+        25.0
+      ],
+      "sales_cycle_months": [
+        1,
+        2,
+        3
+      ],
+      "setup_fee": [
+        1000,
+        3000,
+        7000
+      ],
+      "monthly_fee": [
+        900,
+        2000,
+        4000
+      ],
+      "monthly_churn_beta": [
+        2.0,
+        55.0
+      ],
+      "gross_margin": [
+        0.58,
+        0.74,
+        0.86
+      ],
+      "initial_capacity": 18,
+      "scaled_capacity": 45,
+      "scale_month": 6,
+      "scale_probability": 0.68
+    },
+    "AI governance evidence": {
+      "kind": "sales",
+      "fit_probability": 0.35,
+      "conversations": [
+        4,
+        9,
+        18
+      ],
+      "monthly_lead_growth": [
+        -0.02,
+        0.015,
+        0.05
+      ],
+      "close_rate_beta": [
+        2.0,
+        22.0
+      ],
+      "sales_cycle_months": [
+        2,
+        3,
+        5
+      ],
+      "setup_fee": [
+        6000,
+        14000,
+        28000
+      ],
+      "monthly_fee": [
+        2200,
+        4800,
+        9000
+      ],
+      "monthly_churn_beta": [
+        1.5,
+        75.0
+      ],
+      "gross_margin": [
+        0.48,
+        0.64,
+        0.78
+      ],
+      "initial_capacity": 9,
+      "scaled_capacity": 20,
+      "scale_month": 7,
+      "scale_probability": 0.5
+    },
+    "Atlassian compliance app": {
+      "kind": "app",
+      "fit_probability": 0.25,
+      "launch_month": [
+        2,
+        4,
+        6
+      ],
+      "monthly_visitors": [
+        180,
+        550,
+        1800
+      ],
+      "monthly_traffic_growth": [
+        -0.02,
+        0.045,
+        0.13
+      ],
+      "trial_rate_beta": [
+        3.0,
+        55.0
+      ],
+      "trial_to_paid_beta": [
+        3.0,
+        13.0
+      ],
+      "monthly_arpa": [
+        55,
+        180,
+        650
+      ],
+      "monthly_churn_beta": [
+        3.0,
+        48.0
+      ],
+      "gross_margin": [
+        0.72,
+        0.86,
+        0.94
+      ]
+    }
+  }
+}

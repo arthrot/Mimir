@@ -1,0 +1,5 @@
+idea,conditional_revenue_p50,revenue_p10,revenue_p50,revenue_p90,gross_profit_p50,ending_mrr_p50,ending_customers_p50,prob_revenue_100k,prob_revenue_500k,prob_revenue_1m,prob_exit_arr_1m
+Supplier/import ops,467287,30468,214046,696240,142626,22095,9.0,0.6025,0.2419,0.0133,0.0898
+GovCon response ops,209488,9126,52069,348893,37756,6755,3.0,0.3701,0.0316,0.0001,0.0139
+AI governance evidence,243437,6394,43596,367874,27435,5091,1.0,0.2921,0.0399,0.0002,0.0068
+Atlassian compliance app,54013,1486,9308,76062,7798,2075,7.7,0.0731,0.0028,0.0002,0.0061
