@@ -1,0 +1,228 @@
+id: samskara.mechanic-production
+version: 0.1.0
+title: Samskara mechanic production
+status: active_pilot
+purpose: >-
+  Move one director-approved idea to one implemented, playtested, integrated,
+  and canonically recorded Unity mechanic without allowing AI or implementation
+  convenience to silently redefine the game.
+
+roles:
+  director:
+    authority: [vision, pillars, canon, design, scope, art, audio, release]
+  developer:
+    authority: [implementation, tests, technical feasibility]
+  specialist:
+    authority: [discipline craft recommendation]
+  playtester:
+    authority: [own behavior and self-report]
+  mimir:
+    authority: []
+    responsibilities: [retrieve, cite, guide, trace, verify, abstain]
+
+invariants:
+  - Human director approval is required for canon, taste, scope, and shipping decisions.
+  - AI output begins as generated_candidate and cannot become canonical implicitly.
+  - Every stage has one authoritative output and inspectable completion evidence.
+  - Observation, self-report, and interpretation remain separate records.
+  - Expensive production art starts only after the relevant gameplay contract is stable.
+  - A failed gate routes backward or to the cut list; it never disappears in chat.
+
+states:
+  - id: idea_triage
+    owner: director
+    required_inputs: []
+    allowed_actions: [author_idea_card, retrieve_context, trace_dependencies, reshape, cut]
+    required_artifacts:
+      - idea_card
+    artifact_requirements:
+      idea_card: [experience, repeated_verb, pillar, anti_pillar, loop_layer, risk, success_signal, non_goals]
+    approvals: [director_triage]
+    automated_checks: [source_links_resolve, pillar_and_loop_are_named]
+    exit_criteria: [director_outcome_is_proceed_or_reshape]
+    evidence: [signed_idea_card]
+    on_failure: cut_or_rewrite_idea_card
+    next: concept_check
+
+  - id: concept_check
+    owner: director
+    required_inputs: [signed_idea_card, concept_seed]
+    allowed_actions: [check_seed_fit, record_cut, propose_seed_event]
+    required_artifacts: [concept_check_record]
+    approvals: [director_seed_fit]
+    automated_checks: [vision_current, pillar_current, loop_current, no_unresolved_authority_conflict]
+    exit_criteria: [proposal_serves_pillar, proposal_feeds_loop]
+    evidence: [concept_check_record]
+    on_failure: cut_or_run_signed_seed_change_event
+    next: mechanic_contract
+
+  - id: mechanic_contract
+    owner: director
+    required_inputs: [signed_idea_card, current_concept_seed]
+    allowed_actions: [author_contract, critique, define_kill_criteria]
+    required_artifacts: [mechanic_narrative_contract]
+    artifact_requirements:
+      mechanic_narrative_contract:
+        - experience
+        - mda_chain
+        - core_decision_and_cost
+        - loop_position
+        - inputs_states_and_transitions
+        - feedback_and_accessibility
+        - telegraph_commitment_and_counterplay
+        - narrative_function_and_canon_links
+        - design_smell_review
+        - convention_break_review
+        - kill_criteria
+        - non_goals
+    approvals: [director_contract]
+    automated_checks: [all_fields_present, canon_links_resolve, no_generated_candidate_marked_canonical]
+    exit_criteria: [contract_is_falsifiable, smallest_risk_is_named]
+    evidence: [signed_mechanic_narrative_contract]
+    on_failure: revise_contract
+    next: proof_selection
+
+  - id: proof_selection
+    owner: director
+    required_inputs: [signed_mechanic_narrative_contract]
+    allowed_actions: [select_representation, define_test_question, define_discard_rule]
+    required_artifacts: [prototype_brief]
+    approvals: [director_prototype_scope]
+    automated_checks: [one_primary_question, discard_rule_present, prototype_matches_uncertainty]
+    exit_criteria: [cheapest_honest_proof_selected]
+    evidence: [prototype_brief]
+    on_failure: narrow_question_or_change_representation
+    next: change_packet
+
+  - id: change_packet
+    owner: developer
+    required_inputs: [prototype_brief, signed_mechanic_narrative_contract]
+    allowed_actions: [resolve_interfaces, select_files, define_acceptance, define_rollback]
+    required_artifacts: [evidence_backed_change_packet]
+    artifact_requirements:
+      evidence_backed_change_packet:
+        - goal
+        - owner
+        - governing_sources
+        - public_interface
+        - inputs
+        - constraints
+        - acceptance
+        - non_goals
+        - verification
+        - rollback
+    approvals: [developer_scope, director_design_scope]
+    automated_checks: [file_ownership_non_overlapping, sources_current, context_manifest_bounded]
+    exit_criteria: [implementation_boundary_is_reviewable]
+    evidence: [approved_change_packet]
+    on_failure: revise_packet_or_split_work
+    next: deterministic_skeleton
+
+  - id: deterministic_skeleton
+    owner: developer
+    required_inputs: [approved_change_packet]
+    allowed_actions: [write_test, implement_core, add_adapter, add_debug_view, add_rough_audio]
+    required_artifacts: [code_change, focused_tests, unity_sandbox_proof]
+    approvals: [developer_self_review]
+    automated_checks:
+      - focused_tests_pass
+      - frame_rate_event_order_check
+      - public_interface_contract_holds
+      - no_unapproved_network_egress
+    exit_criteria: [one_player_facing_behavior_works_in_editor]
+    evidence: [commit, test_output, sandbox_capture, context_manifest]
+    on_failure: revert_to_packet_boundary_and_fix_smallest_failing_layer
+    next: playable_conversation
+
+  - id: playable_conversation
+    owner: director
+    required_inputs: [unity_sandbox_proof]
+    allowed_actions: [play_full_loop, tune_one_lever, remove_scaffolding]
+    required_artifacts: [complete_loop_build, internal_iteration_log]
+    approvals: [director_internal_gate]
+    automated_checks: [build_identified, tests_current, debug_state_capture_present]
+    exit_criteria:
+      - action_feedback_response_reward_repeat_is_closed
+      - bare_loop_is_worth_repeating
+      - failure_is_attributable
+    evidence: [build_id, commit, capture, internal_iteration_log]
+    on_failure: return_to_deterministic_skeleton_or_mechanic_contract
+    next: blind_playtest
+
+  - id: blind_playtest
+    owner: director
+    required_inputs: [complete_loop_build, test_protocol]
+    allowed_actions: [observe_without_coaching, collect_self_report, record_interpretation]
+    required_artifacts: [playtest_records]
+    artifact_requirements:
+      playtest_records: [participant_context, build_id, behavior, self_report, interpretation, privacy_status]
+    approvals: []
+    automated_checks: [build_matches_current_contract, evidence_layers_separate, participant_count_at_least_3]
+    exit_criteria: [target_questions_have_behavioral_evidence]
+    evidence: [playtest_records, optional_recording_reference]
+    on_failure: recruit_or_rerun_with_valid_protocol
+    next: director_decision
+
+  - id: director_decision
+    owner: director
+    required_inputs: [playtest_records, current_contract, current_build]
+    allowed_actions: [keep, change, split_test, postpone, cut]
+    required_artifacts: [decision_record, canonical_update_or_cut_record]
+    approvals: [director_decision]
+    automated_checks: [decision_cites_evidence, affected_artifacts_named, reversal_trigger_present, one_authority_updated]
+    exit_criteria: [outcome_recorded_and_authority_consistent]
+    evidence: [signed_decision_record, canonical_diff]
+    on_failure: decision_remains_open
+    transitions:
+      KEEP: production_contracts
+      CHANGE: mechanic_contract
+      SPLIT_TEST: proof_selection
+      POSTPONE: blocked
+      CUT: cut
+
+  - id: production_contracts
+    owner: director
+    required_inputs: [signed_keep_decision, stable_gameplay_contract]
+    allowed_actions: [issue_art_handoff, issue_animation_handoff, issue_audio_handoff, commission_asset]
+    required_artifacts: [discipline_handoffs, asset_registry_entries]
+    approvals: [director_handoff]
+    automated_checks: [source_format_named, export_contract_named, license_present, integration_scene_named]
+    exit_criteria: [handoffs_are_testable_in_game]
+    evidence: [approved_handoffs, asset_registry_entries]
+    on_failure: revise_handoff_without_changing_gameplay_contract
+    next: integration
+
+  - id: integration
+    owner: developer
+    required_inputs: [approved_handoffs, approved_assets, stable_gameplay_contract]
+    allowed_actions: [integrate, validate_lineage, run_tests, capture_build]
+    required_artifacts: [integrated_build, source_export_engine_lineage, integration_review]
+    approvals: [discipline_review, director_in_game_review]
+    automated_checks: [tests_pass, lineage_complete, no_stale_build_evidence, accessibility_checks_recorded]
+    exit_criteria: [mechanic_survives_final_presentation_and_complete_loop]
+    evidence: [build_id, commit, test_output, capture, approvals]
+    on_failure: return_to_production_contracts_or_deterministic_skeleton
+    next: vertical_slice_gate
+
+  - id: vertical_slice_gate
+    owner: director
+    required_inputs: [integrated_build]
+    allowed_actions: [run_slice, run_blind_test, profile, consistency_pass]
+    required_artifacts: [vertical_slice_evidence, release_decision]
+    approvals: [director_release_gate]
+    automated_checks: [complete_path_passes, performance_budget_checked, backup_restore_checked, stale_sources_resolved]
+    exit_criteria:
+      - five_to_ten_minute_sequence_is_coherent
+      - disciplines_create_one_turn_together
+      - unfamiliar_player_can_explain_core_causality
+    evidence: [build_id, commit, test_output, profile, playtest, consistency_review]
+    on_failure: route_to_smallest_failed_stage
+    next: complete
+
+terminal_states:
+  complete:
+    meaning: Implemented, integrated, evidence-backed, director-approved, and canonically recorded.
+  cut:
+    meaning: Removed with reason, evidence, and a reversible cut-list record.
+  blocked:
+    meaning: Waiting on a named dependency, owner, or evidence condition; not silently abandoned.

@@ -14,6 +14,8 @@ The first working adapter targets the existing Samskara Unity project. The core 
 
 - [Product blueprint](docs/product/PRODUCT_BLUEPRINT.md)
 - [Mimir feature and specialist-tool map](docs/product/MIMIR_FEATURE_AND_TOOL_MAP.md)
+- [Mimir 0.1 release specification](docs/product/MIMIR_V0_1_RELEASE_SPEC.md)
+- [Samskara game-director workflow](docs/product/SAMSKARA_GAME_DIRECTOR_WORKFLOW.md)
 - [One-month, two-developer delivery plan](docs/product/ONE_MONTH_DELIVERY_PLAN.md)
 - [AI-assisted build workflow](docs/product/AI_BUILD_WORKFLOW.md)
 - [Competitive stress test and viability score](docs/product/COMPETITIVE_STRESS_TEST.md)
